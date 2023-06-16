@@ -1,0 +1,15 @@
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.csproj.AssemblyReference.cache
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.AssemblyInfoInputs.cache
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.AssemblyInfo.cs
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.csproj.CoreCompileInputs.cache
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\bin\Debug\net6.0\Reminder.BL.deps.json
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\bin\Debug\net6.0\Reminder.BL.dll
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\bin\Debug\net6.0\Reminder.BL.pdb
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\bin\Debug\net6.0\Reminder.DAL.dll
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\bin\Debug\net6.0\Reminder.DAL.pdb
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.csproj.CopyComplete
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.dll
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\refint\Reminder.BL.dll
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\Reminder.BL.pdb
+C:\Users\tugce.sen\Documents\GitHub\appointmentReminder\ReminderProject\Reminder.BL\obj\Debug\net6.0\ref\Reminder.BL.dll
