@@ -11,7 +11,7 @@ namespace Reminder.DAL.DataContext
     public interface IContext
     {
         IMongoCollection<Patient> Patients { get; }
-        IMongoCollection<MedicalHistory> MedicalHistories { get; }
         IMongoCollection<Appointment> Appointments { get; }
+        IMongoCollection<Log> Logs { get; }
     }
 }

@@ -30,10 +30,16 @@ namespace Reminder.BL.Services
             return patient;
         }
 
-        public async Task<Patient> GetPatientByIdNumber(long idNumber)
+        public async Task<Patient> GetPatientByIdNumber(string idNumber)
         {
             var patient = await _patientRepository.GetByIDNumberAsync(idNumber);
             return patient;
+        }
+
+        public async Task<string> InsertAsync(Patient patient)
+        {
+            var result = await _patientRepository.InsertAsync(patient);
+            return result;
         }
     }
 }
