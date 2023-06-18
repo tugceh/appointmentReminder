@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using Reminder.BL.Dto;
 using Reminder.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,6 @@ namespace Reminder.BL.Services.Interfaces
         Task<List<Patient>> GetAllPatients();
         Task<Patient> GetPatientById(ObjectId Id);
         Task<Patient> GetPatientByIdNumber(string idNumber);
-        Task<string> InsertAsync(Patient patient);
+        Task<string> InsertAsync(PateintDto patient);
     }
 }

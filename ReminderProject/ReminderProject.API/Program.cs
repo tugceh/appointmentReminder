@@ -22,7 +22,6 @@ builder.Services.AddSingleton<IDatabaseSetting>(sp => sp.GetRequiredService<IOpt
 
 builder.Services.AddDAL();
 builder.Services.AddBL();
-//builder.Services.AddHostedService<ScheduleService>();
 
 builder.Services.AddQuartz(q =>
 {
@@ -36,7 +35,6 @@ builder.Services.AddQuartz(q =>
                 .RepeatForever()
                 .WithIntervalInMinutes(5)
                 ));
-        //.WithCronSchedule("1/5 * * * * ?"));
 
 });
 

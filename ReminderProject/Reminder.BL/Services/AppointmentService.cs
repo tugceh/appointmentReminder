@@ -48,10 +48,27 @@ namespace Reminder.BL.Services
             return appointments;
         }
 
-        public async Task<string> InsertAsync(Appointment appointment)
+        public async Task<string> InsertAsync(AppointmentDto appointment)
         {
-            var result = await _appointmentRepository.InsertAsync(appointment);
-            return result;
+            var patient = _patientRepository.GetByIDNumberAsync(appointment.PatientIdNumber).Result;
+            if (patient != null)
+            {
+                Appointment appointmentModel = new Appointment()
+                {
+                    AppointmentDate = appointment.AppointmentDate,
+                    Department = appointment.Department,
+                    Deleted = false,
+                    PatientId = patient.Id
+                };
+                var result = await _appointmentRepository.InsertAsync(appointmentModel);
+                if (!string.IsNullOrEmpty(result))
+                {
+                    return "Appointment was added successfully.";
+                }
+                return "Appointment was not added successfully.";
+            }
+            else
+                return"Patient was not found!!";
         }
 
         public async Task<string> RemindAppointments()

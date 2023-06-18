@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using Reminder.BL.Dto;
 using Reminder.BL.Services;
 using Reminder.BL.Services.Interfaces;
 using Reminder.DAL.Entities;
@@ -29,7 +30,7 @@ namespace ReminderProject.API.Controllers
             Ok(await _appointmentService.GetByPatientId(id));
 
         [HttpPost("insert")]
-        public async Task<IActionResult> InsertAppointment(Appointment appointment) =>
+        public async Task<IActionResult> InsertAppointment(AppointmentDto appointment) =>
             Ok(await _appointmentService.InsertAsync(appointment));
 
         [HttpGet("startReminder")]
