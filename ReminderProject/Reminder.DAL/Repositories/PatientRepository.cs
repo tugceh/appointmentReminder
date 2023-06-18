@@ -23,7 +23,7 @@ namespace Reminder.DAL.Repositories
         public async Task<Patient> GetByIdAsync(ObjectId objectId) =>
              await dataContext.Patients.Find(Builders<Patient>.Filter.Eq(f => f.Id, objectId)).FirstOrDefaultAsync();
 
-        public async Task<Patient> GetByIDNumberAsync(long idNumber) =>
+        public async Task<Patient> GetByIDNumberAsync(string idNumber) =>
              await dataContext.Patients.Find(Builders<Patient>.Filter.Eq(f => f.IDNumber, idNumber)).FirstOrDefaultAsync();
 
         public async Task<List<Patient>> GetAllAsync() =>

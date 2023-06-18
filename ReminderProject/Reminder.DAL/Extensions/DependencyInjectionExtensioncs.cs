@@ -17,8 +17,7 @@ namespace Reminder.DAL.Extensions
             services.AddScoped<IContext, Context>();
 
             services.AddScoped<IPatientRepository, PatientRepository>();
-            //services.AddSingleton<ILogRepository, LogRepository>();
-            services.AddScoped<IMedicalHistoryRepository, MedicalHistoryRepository>();
+            services.AddSingleton<ILogRepository, LogRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 
             return services;

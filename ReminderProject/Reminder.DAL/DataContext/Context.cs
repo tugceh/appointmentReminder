@@ -17,12 +17,12 @@ namespace Reminder.DAL.DataContext
             var database = client.GetDatabase(settings.DatabaseName);
 
             Patients = database.GetCollection<Patient>(nameof(Patient));
-            MedicalHistories = database.GetCollection<MedicalHistory>(nameof(MedicalHistory));
             Appointments = database.GetCollection<Appointment>(nameof(Appointment));
+            Logs = database.GetCollection<Log>(nameof(Log));
         }
 
         public IMongoCollection<Patient> Patients { get; set; }
-        public IMongoCollection<MedicalHistory> MedicalHistories { get; set; }
         public IMongoCollection<Appointment> Appointments { get; set; }
+        public IMongoCollection<Log> Logs { get; set; }
     }
 }

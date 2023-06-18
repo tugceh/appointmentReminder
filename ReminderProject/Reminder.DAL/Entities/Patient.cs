@@ -14,11 +14,12 @@ namespace Reminder.DAL.Entities
 
         }
         public string Name { get; set; }
-        public long IDNumber { get; set; }
+        public string IDNumber { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public bool Deleted { get; set; }
+        public string MedicalHistory { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

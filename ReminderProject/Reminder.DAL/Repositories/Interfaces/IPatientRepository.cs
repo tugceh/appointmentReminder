@@ -12,7 +12,7 @@ namespace Reminder.DAL.Repositories.Interfaces
     {
         Task<Patient> GetByIdAsync(ObjectId objectId);
         Task<List<Patient>> GetAllAsync();
-        Task<Patient> GetByIDNumberAsync(long idNumber);
+        Task<Patient> GetByIDNumberAsync(string idNumber);
         Task<string> InsertAsync(Patient entity);
     }
 }

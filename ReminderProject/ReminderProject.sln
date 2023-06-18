@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderProject.API", "ReminderProject.API\ReminderProject.API.csproj", "{DA6D7B98-09A7-4F81-B406-8D1B800B1960}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02D7A51C-9D19-4377-B101-021E99817EBD} = {02D7A51C-9D19-4377-B101-021E99817EBD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.DAL", "Reminder.DAL\Reminder.DAL.csproj", "{2A63C485-6477-47F0-B42A-B22F8B253FAE}"
 EndProject

@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using Reminder.BL.Dto;
 using Reminder.BL.Services.Interfaces;
 using Reminder.DAL.Entities;
 using Reminder.DAL.Repositories.Interfaces;
@@ -30,10 +31,30 @@ namespace Reminder.BL.Services
             return patient;
         }
 
-        public async Task<Patient> GetPatientByIdNumber(long idNumber)
+        public async Task<Patient> GetPatientByIdNumber(string idNumber)
         {
             var patient = await _patientRepository.GetByIDNumberAsync(idNumber);
             return patient;
+        }
+
+        public async Task<string> InsertAsync(PateintDto patient)
+        {
+            Patient patientModel = new() 
+            { 
+                Name = patient.Name,
+                Email = patient.Email,
+                Address = patient.Address,
+                Phone = patient.Phone,
+                Deleted = false,
+                IDNumber = patient.IDNumber,
+                MedicalHistory = patient.MedicalHistory
+            };
+            var result = await _patientRepository.InsertAsync(patientModel);
+            if (!string.IsNullOrEmpty(result))
+            {
+                return "Patient was added successfully.";
+            }
+            return "Patient was not added successfully.";
         }
     }
 }

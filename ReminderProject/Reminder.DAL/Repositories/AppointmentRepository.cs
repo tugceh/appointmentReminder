@@ -23,8 +23,8 @@ namespace Reminder.DAL.Repositories
         public async Task<Appointment> GetByIdAsync(ObjectId objectId) =>
              await dataContext.Appointments.Find(Builders<Appointment>.Filter.Eq(f => f.Id, objectId)).FirstOrDefaultAsync();
 
-        public async Task<Appointment> GetByPatientIdAsync(ObjectId objectId) =>
-            await dataContext.Appointments.Find(Builders<Appointment>.Filter.Eq(f => f.PatientId, objectId)).FirstOrDefaultAsync();
+        public async Task<List<Appointment>> GetByPatientIdAsync(ObjectId objectId) =>
+            await dataContext.Appointments.Find(Builders<Appointment>.Filter.Eq(f => f.PatientId, objectId)).ToListAsync();
         public async Task<List<Appointment>> GetAllAsync() =>
              await dataContext.Appointments.Find(Builders<Appointment>.Filter.Where(f => !f.Deleted)).ToListAsync();
 
