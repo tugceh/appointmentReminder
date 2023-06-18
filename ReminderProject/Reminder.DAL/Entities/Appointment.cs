@@ -21,7 +21,7 @@ namespace Reminder.DAL.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId PatientId { get; set; }
 
-        [BsonIgnore]
-        public Patient Patient { get; set; }
+        //[BsonIgnore]
+        //public Patient Patient { get; set; }
     }
 }

@@ -11,6 +11,7 @@
           "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
           "NETCore.MailKit": "2.1.0",
           "Quartz": "3.6.2",
+          "Quartz.Extensions.Hosting": "3.6.2",
           "Reminder.DAL": "1.0.0"
         },
         "runtime": {
@@ -275,6 +276,32 @@
         },
         "runtime": {
           "lib/netstandard2.0/Quartz.dll": {
+            "assemblyVersion": "3.6.2.0",
+            "fileVersion": "3.6.2.0"
+          }
+        }
+      },
+      "Quartz.Extensions.DependencyInjection/3.6.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.1",
+          "Quartz": "3.6.2"
+        },
+        "runtime": {
+          "lib/net6.0/Quartz.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "3.6.2.0",
+            "fileVersion": "3.6.2.0"
+          }
+        }
+      },
+      "Quartz.Extensions.Hosting/3.6.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
+          "Quartz.Extensions.DependencyInjection": "3.6.2"
+        },
+        "runtime": {
+          "lib/net6.0/Quartz.Extensions.Hosting.dll": {
             "assemblyVersion": "3.6.2.0",
             "fileVersion": "3.6.2.0"
           }
@@ -584,6 +611,20 @@
       "sha512": "sha512-wCNiVQKdwSz85fOFvEixOuxiIqsenixf34b8w21oGF0qw9oylFPDrV/ri02cX531WelFsN8K5w6E5/qop5mRYw==",
       "path": "quartz/3.6.2",
       "hashPath": "quartz.3.6.2.nupkg.sha512"
+    },
+    "Quartz.Extensions.DependencyInjection/3.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EkJCyTVhfaE2SX2hVSQbKSVQs+fw1gWnGaQv+RzfsWASvk7CzDddPE31WA00I0t9gfXpcnV9jDgSOP8K+tO1uA==",
+      "path": "quartz.extensions.dependencyinjection/3.6.2",
+      "hashPath": "quartz.extensions.dependencyinjection.3.6.2.nupkg.sha512"
+    },
+    "Quartz.Extensions.Hosting/3.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P9PIWcFmK/x5GbxTZcgfOFkagb+OBviNvmsrdksLKe1Dv0LfdjuWvWyUxjbttjmAEm+5IibxGVF5hf42Ws2Qkw==",
+      "path": "quartz.extensions.hosting/3.6.2",
+      "hashPath": "quartz.extensions.hosting.3.6.2.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",

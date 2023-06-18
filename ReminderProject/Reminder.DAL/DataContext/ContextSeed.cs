@@ -1,5 +1,6 @@
 ﻿using MongoDB.Driver;
 using Reminder.DAL.Entities;
+using Reminder.DAL.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,12 +31,22 @@ namespace Reminder.DAL.DataContext
             await appointments.InsertManyAsync(Appointments(patients));
         }
 
+        public static async Task SeedLogsAsync(IMongoCollection<Log> logs)
+        {
+            bool exist = logs.Find(p => true).Any();
+
+            if (exist)
+                await logs.DeleteManyAsync(p => true);
+
+            await logs.InsertManyAsync(Logs());
+        }
+
         #region Helper Methods
 
         static List<Patient> Patients() =>
             new()
             {
-                new Patient { Name = "Tuğçe Şen", IDNumber = "30141185696", Phone="05544851785", Email="tugcehsen@gmail.com", Address="Batıkent", MedicalHistory="Kan Alım"},
+                new Patient { Name = "Tuğçe Şen", IDNumber = "30141185696", Phone="05544851785", Email="tugcehilalsen@hotmail.com", Address="Batıkent", MedicalHistory="Kan Alım"},
                 new Patient { Name = "Hilal Şen", IDNumber = "20185185696", Phone="05444851785", Email="tugcehilalsen@hotmail.com", Address="Batıkent", MedicalHistory="Serum" },
             };
 
@@ -45,10 +56,16 @@ namespace Reminder.DAL.DataContext
 
             return new()
             {
-                new Appointment {AppointmentDate = DateTime.Now, Department="İç hastalıkları", Patient = patient, PatientId = patient.Id},
-                new Appointment {AppointmentDate = DateTime.Now, Department="Dermatoloji", Patient = patient, PatientId = patient.Id}
+                new Appointment {AppointmentDate = DateTime.Now.AddDays(+2), Department="İç hastalıkları", PatientId = patient.Id},
+                new Appointment {AppointmentDate = DateTime.Now.AddDays(+3), Department="Dermatoloji", PatientId = patient.Id}
             };
         }
+
+        static List<Log> Logs() =>
+            new()
+            {
+                new Log {  FullMessage= "First Log", ShortMessage= "First Log", Type = LogType.Info}
+            };
         #endregion
     }
 }

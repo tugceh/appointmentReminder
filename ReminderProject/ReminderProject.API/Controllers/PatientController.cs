@@ -24,7 +24,7 @@ namespace ReminderProject.API.Controllers
         public async Task<IActionResult> GetById(ObjectId id) =>
             Ok(await _patientService.GetPatientById(id));
 
-        [HttpGet("getbyidnumber/{id}")]
+        [HttpGet("getbyidnumber/{idnumber}")]
         public async Task<IActionResult> GetByIdNumber(string idnumber) =>
             Ok(await _patientService.GetPatientByIdNumber(idnumber));
 

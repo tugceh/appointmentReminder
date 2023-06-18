@@ -9,6 +9,7 @@ using Reminder.BL.Extensions;
 using Reminder.DAL.Extensions;
 using Reminder.DAL.DataContext;
 using Reminder.BL.Dto;
+using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,25 @@ builder.Services.AddSingleton<IDatabaseSetting>(sp => sp.GetRequiredService<IOpt
 
 builder.Services.AddDAL();
 builder.Services.AddBL();
-builder.Services.AddHostedService<ScheduleService>();
+//builder.Services.AddHostedService<ScheduleService>();
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionScopedJobFactory();
+    var jobKey = new JobKey("ScheduleService");
+    q.AddJob<ScheduleService>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("ScheduleService-trigger").WithSimpleSchedule(x => x
+                .RepeatForever()
+                .WithIntervalInMinutes(5)
+                ));
+        //.WithCronSchedule("1/5 * * * * ?"));
+
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig);

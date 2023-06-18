@@ -14,6 +14,7 @@ namespace ReminderProject.API.Extensions
 
                     ContextSeed.SeedPateintAsync(context.Patients).Wait();
                     ContextSeed.SeedAppointmentAsync(context.Patients, context.Appointments).Wait();
+                    ContextSeed.SeedLogsAsync(context.Logs).Wait();
                 }
                 catch (Exception ex)
                 {

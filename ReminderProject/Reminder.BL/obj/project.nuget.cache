@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "S7eWZUMrOuIyNbqewcOiFoc3dg25LWci3nIr00+9cRsEbyaRl5hxQ1dZEAjaq3wW0tqSyul6v4bvpzxWwbf5aQ==",
+  "dgSpecHash": "PTWrfOK0qY7K+y2noNeo5Ucc6sE9KaeWW7oh3qlpJXPbrp7Kh5l5YH+OTf8DQ110nPDmpXzeyTB8KsIsX+nVJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\tugce.sen\\Documents\\GitHub\\appointmentReminder\\ReminderProject\\Reminder.BL\\Reminder.BL.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,8 @@
     "C:\\Users\\tugce.sen\\.nuget\\packages\\netcore.mailkit\\2.1.0\\netcore.mailkit.2.1.0.nupkg.sha512",
     "C:\\Users\\tugce.sen\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\tugce.sen\\.nuget\\packages\\quartz\\3.6.2\\quartz.3.6.2.nupkg.sha512",
+    "C:\\Users\\tugce.sen\\.nuget\\packages\\quartz.extensions.dependencyinjection\\3.6.2\\quartz.extensions.dependencyinjection.3.6.2.nupkg.sha512",
+    "C:\\Users\\tugce.sen\\.nuget\\packages\\quartz.extensions.hosting\\3.6.2\\quartz.extensions.hosting.3.6.2.nupkg.sha512",
     "C:\\Users\\tugce.sen\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\tugce.sen\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\tugce.sen\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

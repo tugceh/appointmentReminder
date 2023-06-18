@@ -16,10 +16,12 @@ namespace Reminder.BL.Services
     {
         private readonly IAppointmentRepository _appointmentRepository;
         private readonly IEmailSender _emailSender;
-        public AppointmentService(IAppointmentRepository appointmentRepository, IEmailSender emailSender)
+        private readonly IPatientRepository _patientRepository;
+        public AppointmentService(IAppointmentRepository appointmentRepository, IEmailSender emailSender, IPatientRepository patientRepository)
         {
             _appointmentRepository = appointmentRepository;
             _emailSender = emailSender;
+            _patientRepository = patientRepository;
         }
 
         public async Task<List<Appointment>> GetAllAppointments()
@@ -57,9 +59,11 @@ namespace Reminder.BL.Services
             try
             {
                 var appointments = await _appointmentRepository.GetAllAsync();
+                appointments = appointments.Where(i => i.AppointmentDate >= DateTime.Now).ToList();
                 foreach (var appointment in appointments)
                 {
-                    var message = new Message(new string[] { appointment.Patient.Email}, "Appointment Remind", $"Hello {appointment.Patient.Name}, you have appointment on {appointment.AppointmentDate} date. This email is reminder.");
+                    var patient = _patientRepository.GetByIdAsync(appointment.PatientId).Result;
+                    var message = new Message(new string[] { patient.Email}, "Appointment Remind", $"Hello {patient.Name}, you have appointment on {appointment.AppointmentDate} date. This email is reminder.");
                     await _emailSender.SendEmailAsync(message);
                 }
                 return "Success";

@@ -1,4 +1,5 @@
 ﻿using MailKit.Net.Smtp;
+using MailKit.Security;
 using MimeKit;
 using Reminder.BL.Dto;
 using Reminder.BL.Services.Interfaces;
@@ -13,9 +14,11 @@ namespace Reminder.BL.Services
     public class EmailSender : IEmailSender
     {
         private readonly EmailConfiguration _emailConfig;
-        public EmailSender(EmailConfiguration emailConfig)
+        private readonly ILogService _logService;
+        public EmailSender(EmailConfiguration emailConfig, ILogService logService)
         {
             _emailConfig = emailConfig;
+            _logService = logService;
         }
         private MimeMessage CreateEmailMessage(Message message)
         {
@@ -32,16 +35,18 @@ namespace Reminder.BL.Services
             var mailMessage = CreateEmailMessage(message);
             await SendAsync(mailMessage);
         }
-        private async Task SendAsync(MimeMessage mailMessage)
+        private async Task SendAsync(MimeMessage mailMessage, CancellationToken ct = default)
         {
             using (var client = new SmtpClient())
             {
                 try
                 {
-                    await client.ConnectAsync(_emailConfig.SmtpServer, _emailConfig.Port, true);
-                    client.AuthenticationMechanisms.Remove("XOAUTH2");
-                    await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password);
-                    await client.SendAsync(mailMessage);
+                    await _logService.AddInfo("Email is send.", $"Email is send{mailMessage}");
+                    //await client.ConnectAsync(_emailConfig.Host, _emailConfig.Port, _emailConfig.UseSSL);
+                    //await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password,ct);
+                   
+                    //Google account da erişim sorunu yaşandığı için mail yollanmıyor.
+                    //await client.SendAsync(mailMessage);
                 }
                 catch
                 {

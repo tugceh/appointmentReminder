@@ -16,7 +16,7 @@ namespace Reminder.BL.Extensions
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddSingleton<ILogService, LogService>();
-            services.AddScoped<IEmailSender, EmailSender>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
             return services;
         }

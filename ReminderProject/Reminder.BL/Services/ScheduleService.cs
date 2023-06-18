@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
+using Quartz;
 using Reminder.BL.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Reminder.BL.Services
 {
-    public class ScheduleService : IScheduleService, IHostedService
+    public class ScheduleService : IScheduleService, IJob //, IHostedService
     {
         private readonly IAppointmentService _appointmentService;
         private readonly ILogService _logService;
@@ -20,27 +21,37 @@ namespace Reminder.BL.Services
             _logService = logService;
         }
 
-        public void ControlAppointments(object state)
+        //public void ControlAppointments(object state)
+        //{
+        //    _logService.AddInfo("Schedule service running.", "Reminder is starting");
+        //    _appointmentService.RemindAppointments();
+        //}
+        public void ControlAppointments()
         {
             _logService.AddInfo("Schedule service running.", "Reminder is starting");
             _appointmentService.RemindAppointments();
         }
-
-        public Task StartAsync(CancellationToken cancellationToken)
+        public Task Execute(IJobExecutionContext context)
         {
-            // timer repeates call to ControlAppointments every 15 minutes.
-            _timer = new Timer(ControlAppointments,null,TimeSpan.Zero,TimeSpan.FromSeconds(15)
-            );
-
-            return Task.CompletedTask;
+            //Write your custom code here
+            ControlAppointments();
+            return Task.FromResult(true);
         }
+        //public Task StartAsync(CancellationToken cancellationToken)
+        //{
+        //    // timer repeates call to ControlAppointments every 15 minutes.
+        //    _timer = new Timer(ControlAppointments,null,TimeSpan.Zero,TimeSpan.FromSeconds(5)
+        //    );
 
-        /// Call the Stop async method if required from within the app.
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _timer?.Change(Timeout.Infinite, 0);
+        //    return Task.CompletedTask;
+        //}
 
-            return Task.CompletedTask;
-        }
+        ///// Call the Stop async method if required from within the app.
+        //public Task StopAsync(CancellationToken cancellationToken)
+        //{
+        //    _timer?.Change(Timeout.Infinite, 0);
+
+        //    return Task.CompletedTask;
+        //}
     }
 }
