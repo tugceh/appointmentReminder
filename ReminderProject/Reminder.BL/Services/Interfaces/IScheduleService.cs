@@ -9,8 +9,6 @@ namespace Reminder.BL.Services.Interfaces
 {
     public interface IScheduleService
     {
-        //Task StartAsync(CancellationToken cancellationToken);
-        //Task StopAsync(CancellationToken cancellationToken);
         Task Execute(IJobExecutionContext context);
     }
 }
